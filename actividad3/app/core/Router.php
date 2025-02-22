@@ -14,7 +14,7 @@ class Router{
 
     public function dispatch($method,$uri){
         foreach($this->routes as $route){
-            if( $route['method']===strtoupper($method) && preg_mathc($this->convertRoute($route['route']),$uri, $params))
+            if( $route['method']===strtoupper($method) && preg_match($this->convertRoute($route['route']),$uri, $params))
                {
                   array_shift($params);
                   return call_user_func_array($route['callback'], $params);
@@ -29,7 +29,7 @@ class Router{
     }
 
     private function convertRoute($route){
-        return "#^" .pre_replace('/\\\:[a-zA-Z0-9_]+/' , ' ([a-zA-Z0-9_-]+)', preg_quote($route)) . "$#";
+        return "#^" . preg_replace('/\\\:[a-zA-Z0-9_]+/' , ' ([a-zA-Z0-9_-]+)', preg_quote($route)) . "$#";
     }
 }
 ?>

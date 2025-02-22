@@ -1,13 +1,4 @@
 <?php include 'templates/header.php'; ?>
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Inicio - Gestión de Libros</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-dark text-white position-relative">
 
     <div class="position-fixed top-0 start-0 w-100 h-100" 
          style="background: url('https://d37adozyy71gtb.cloudfront.net/wp-content/uploads/2024/06/00-Portada.jpg') no-repeat center center fixed; 
@@ -41,7 +32,5 @@
 
     <?php include 'templates/footer.php'; ?>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
