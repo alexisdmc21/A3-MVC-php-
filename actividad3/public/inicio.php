@@ -1,19 +1,47 @@
 <?php include 'templates/header.php'; ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio - Gestión de Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white position-relative">
 
-<h1>Gestión de libros y autores</h1>
-    <br>
-    <h2>Bienvenido a nuestra aplicación de Gestión de Libros y Autores</h2>
-    <p>Esta es aplicacion basada en los principios de una arquitectura MVC que
-        separa responsabilidades de la aplicación, permitiendonos tener una forma
-        sencilla y eficiente de organizar una coleccion de libros y la informacion
-        de autores.
-        Nuestra aplicacion permite explorar, agregar, modificar y eliminar libros y autores
-        de manera intuitiva y sencilla. Con una interfaz moderna y funcionalidades 
-        dinamicas, podemos asimilar a un gestor de una biblioteca real.
-    </p>
-    <br>
-    <h2>Integrantes</h2>
+    <div class="position-fixed top-0 start-0 w-100 h-100" 
+         style="background: url('https://d37adozyy71gtb.cloudfront.net/wp-content/uploads/2024/06/00-Portada.jpg') no-repeat center center fixed; 
+                background-size: cover; opacity: 0.5; z-index: -1;">
+    </div>
 
-    <!--Nombres-->
+    <div class="d-flex flex-column min-vh-100">
+    <main class="container flex-grow-1 d-flex align-items-center justify-content-center text-center">
+    <div class="p-5 rounded shadow-lg">
+        <h1 class="display-4">Gestión de Libros y Autores</h1>
+        <br>
+        <h2>Bienvenido a nuestra aplicación de Gestión de Libros y Autores</h2>
+        <p>Esta es una aplicación basada en los principios de una arquitectura MVC que
+            separa responsabilidades de la aplicación, permitiéndonos tener una forma
+            sencilla y eficiente de organizar una colección de libros y la información
+            de autores.
+            Nuestra aplicación permite explorar, agregar, modificar y eliminar libros y autores
+            de manera intuitiva y sencilla. Con una interfaz moderna y funcionalidades 
+            dinámicas, podemos asimilar a un gestor de una biblioteca real.
+        </p>
+        <br>
+        <h2>Integrantes</h2>
+        <ul class="list-unstyled">
+            <li>Alexis Damian Morales Cuasquer</li>
+            <li>Jessica Estefania Sanchez Ugsiña</li>
+            <li>Melanie Abigail Talavera Castillo</li>
 
-<?php include 'templates/footer.php'; ?>
+        </ul>
+
+    </main>
+
+    <?php include 'templates/footer.php'; ?>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
