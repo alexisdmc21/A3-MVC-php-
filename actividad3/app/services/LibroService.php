@@ -13,7 +13,7 @@ class LibroService{
         $stmt = $this->libroRepository->readAll();
         $result = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-            $resul[] = $row;
+            $result[] = $row;
         }
         return $result;
     }
@@ -26,7 +26,7 @@ class LibroService{
     public function create($data){
         $libro = new Libro();
         $libro->setTitulo($data->titulo);
-        $libro->setAnioPublicacion($data->anio_publicacion);
+        $libro->setFechaPublicacion($data->fechaPublicacion);
         $libro->setGenero($data->genero);
         $libro->setIsbn($data->isbn);
         $libro->setPrecio($data->precio);
@@ -37,8 +37,9 @@ class LibroService{
 
     public function update($data){
         $libro = new Libro();
+        $libro->setId($data->id);
         $libro->setTitulo($data->titulo);
-        $libro->setAnioPublicacion($data->anio_publicacion);
+        $libro->setFechaPublicacion($data->fechaPublicacion);
         $libro->setGenero($data->genero);
         $libro->setIsbn($data->isbn);
         $libro->setPrecio($data->precio);

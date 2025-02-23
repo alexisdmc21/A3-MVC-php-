@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ . '/../services/AutorService.php';
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../services/AutorService.php';
+
 
 class AutorController
 {
@@ -15,15 +16,15 @@ class AutorController
 
     public function index()
     {
-        $resut = $this->autorService->getAll();
-        echo json_encode($resut);
+        $result = $this->autorService->getAll();
+        echo json_encode($result);
     }
 
     public function show($id)
     {
-        $resut = $this->autorService->getById($id);
-        if ($resut) {
-            echo json_encode($resut);
+        $result = $this->autorService->getById($id);
+        if ($result) {
+            echo json_encode($result);
         } else {
             http_response_code(404);
             echo json_encode(['message' => 'No se encontro el autor']);
@@ -50,7 +51,7 @@ class AutorController
     public function update()
     {
         $data = json_decode(file_get_contents('php://input'));
-        if (!empty($data->nombre) && !empty($data->apellido) && !empty($data->nacionalidad) && !empty($data->fechaNacimiento)) {
+        if (!empty($data->id) && !empty($data->nombre) && !empty($data->apellido) && !empty($data->nacionalidad) && !empty($data->fechaNacimiento)) {
             if ($this->autorService->update($data)) {
                 echo json_encode(['message' => 'Autor actualizado satisfactoriamente']);
             } else {

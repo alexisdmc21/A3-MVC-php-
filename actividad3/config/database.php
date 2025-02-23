@@ -3,7 +3,7 @@
 class Database
 {
     private $host    = "localhost";
-    private $db_name  = "bd-libros";
+    private $db_name  = "bd-nuevo";
     private $username = "root";
     private $password = "";
     public $conn;
@@ -25,3 +25,4 @@ class Database
         return $this->conn;
     }
 }
+?>

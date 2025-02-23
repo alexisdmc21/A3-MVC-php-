@@ -1,5 +1,5 @@
 <?php
-require_once 'app/models/Libro.php';
+require_once __DIR__ . '/../models/Libro.php';
 
 class LibroRepository{
     private $conn;
@@ -10,20 +10,20 @@ class LibroRepository{
     }
 
     public function readAll(){
-        $query = "SELECT p.*,c.nombre as autor_nombre
-        FROM {$this->table_name} p
-        INNER JOIN autores c ON p.autores_id = c.id";
+        $query = "SELECT l.*, a.nombre as autor_nombre
+        FROM {$this->table_name} l
+        INNER JOIN autores a ON l.autores_id = a.id";
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
     return $stmt;
     }
 
     public function create(Libro $libro){
-        $query = "INSERT INTO {$this->table_name} (titulo,anio_publicacion,genero,isbn,precio,cantidad,autores_id) 
-        VALUES (:titulo,:anio_publicacion,:genero,:isbn,:precio,:cantidad,:autores_id)";
+        $query = "INSERT INTO {$this->table_name} (titulo,fechaPublicacion,genero,isbn,precio,cantidad,autores_id) 
+        VALUES (:titulo,:fechaPublicacion,:genero,:isbn,:precio,:cantidad,:autores_id)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':titulo', $libro->getTitulo());
-        $stmt->bindParam(':anio_publicacion', $libro->getAnioPublicacion());
+        $stmt->bindParam(':fechaPublicacion', $libro->getFechaPublicacion());
         $stmt->bindParam(':genero', $libro->getGenero());
         $stmt->bindParam(':isbn', $libro->getIsbn());
         $stmt->bindParam(':precio', $libro->getPrecio());
@@ -34,11 +34,11 @@ class LibroRepository{
 
     public function update(Libro $libro){
         $query = "UPDATE {$this->table_name}
-        SET titulo = :titulo, anio_publicacion = :anio_publicacion, genero = :genero, isbn = :isbn, precio = :precio, cantidad = :cantidad, autores_id = :autores_id
+        SET titulo = :titulo, fechaPublicacion = :fechaPublicacion, genero = :genero, isbn = :isbn, precio = :precio, cantidad = :cantidad, autores_id = :autores_id
         WHERE id = :id";
     $stmt = $this->conn->prepare($query);
     $stmt->bindParam(':titulo', $libro->getTitulo());
-    $stmt->bindParam(':anio_publicacion', $libro->getAnioPublicacion());
+    $stmt->bindParam(':fechaPublicacion', $libro->getFechaPublicacion());
     $stmt->bindParam(':genero', $libro->getGenero());
     $stmt->bindParam(':isbn', $libro->getIsbn());
     $stmt->bindParam(':precio', $libro->getPrecio());
@@ -56,10 +56,10 @@ class LibroRepository{
     }
 
     public function readOne($id){
-        $query = "SELECT p.*,c.nombre as autor_nombre
-                  FROM {$this->table_name} p
-                  INNER JOIN autores c ON p.autores_id = c.id
-                  WHERE p.id = :id LIMIT 0,1";
+        $query = "SELECT l.*, a.nombre as autor_nombre
+                  FROM {$this->table_name} l
+                  INNER JOIN autores a ON l.autores_id = a.id
+                  WHERE l.id = :id LIMIT 0,1";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':id', $id);
         $stmt->execute();

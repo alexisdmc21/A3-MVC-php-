@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ .'../models/Autor.php';
 require_once __DIR__ .'/../repositories/AutorRepository.php';
+require_once __DIR__ .'/../models/Autor.php';
+
 
 
 
@@ -21,7 +22,7 @@ class AutorService{
     }
 
     public function getById($id){
-        $data = $this->autorRepository->readONe($id);
+        $data = $this->autorRepository->readOne($id);
         return $data ? $data:null;
     }
 
@@ -30,7 +31,7 @@ class AutorService{
         $autor->setNombre($data->nombre);
         $autor->setApellido($data->apellido);
         $autor->setNacionalidad($data->nacionalidad);
-        $autor->setFechaNacimiento($data->fecha_nacimiento);
+        $autor->setFechaNacimiento($data->fechaNacimiento);
         return $this->autorRepository->create($autor);
     }
 
@@ -40,7 +41,7 @@ class AutorService{
         $autor->setNombre($data->nombre);
         $autor->setApellido($data->apellido);
         $autor->setNacionalidad($data->nacionalidad);
-        $autor->setFechaNacimiento($data->fecha_nacimiento);
+        $autor->setFechaNacimiento($data->fechaNacimiento);
         return $this->autorRepository->update($autor);
     }
 

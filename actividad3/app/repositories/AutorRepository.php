@@ -10,10 +10,12 @@ require_once __DIR__ .'/../models/Autor.php';
     }
      
     public function create(Autor $autor){
-        $query = "INSERT INTO {$this->table_name} (nombre,apellido) VALUES (:nombre, :apellido)";
+        $query = "INSERT INTO {$this->table_name} (nombre,apellido,nacionalidad,fechaNacimiento) VALUES (:nombre, :apellido, :nacionalidad, :fechaNacimiento)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":nombre",$autor->getNombre());
         $stmt->bindParam(":apellido", $autor->getApellido());
+        $stmt->bindParam(":nacionalidad", $autor->getNacionalidad());
+        $stmt->bindParam(":fechaNacimiento", $autor->getFechaNacimiento());
         return $stmt->execute();
 
       }
@@ -26,10 +28,12 @@ require_once __DIR__ .'/../models/Autor.php';
       }
 
       public function update(Autor $autor){
-      $query = "UPDATE {$this->table_name} SET nombre = :nombre, apellido = :apellido WHERE id=:id";
+      $query = "UPDATE {$this->table_name} SET nombre = :nombre, apellido = :apellido, nacionalidad = :nacionalidad, fechaNacimiento = :fechaNacimiento WHERE id=:id";
       $stmt = $this->conn->prepare($query);
       $stmt ->bindParam(":nombre",$autor->getNombre());
       $stmt ->bindParam(":apellido", $autor->getApellido());
+      $stmt->bindParam(":nacionalidad", $autor->getNacionalidad());
+      $stmt->bindParam(":fechaNacimiento", $autor->getFechaNacimiento());
       $stmt ->bindParam(":id",$autor->getId());
       return $stmt->execute();
  
