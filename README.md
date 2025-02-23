@@ -28,5 +28,5 @@ El proyecto adopta la estructura Modelo-Vista-Controlador (MVC) con el objetivo 
 
 # Desarrollo (Instrucciones para ejecutar la aplicación)
 
-Para llevar a cabo la aplicación, se requiere establecer un servidor local como XAMPP, WAMP o LAMP, importar la base de datos desde bd.sql y asegurarse de que la configuración de conexión en config/database.php sea correcta. Una vez configurado, se puede acceder a la aplicacion.
+Para llevar a cabo la aplicación, se requiere establecer un servidor local como XAMPP, WAMP o LAMP, importar la base de datos desde bd.sql y asegurarse de que la configuración de conexión en config/database.php sea correcta. Una vez configurado, se puede acceder a la aplicacion, la cual cuenta con una página de inicio (inicio.php), donde se presenta una introducción al sistema de gestión de libros y autores. En la parte superior de la interfaz, se encuentra un menú de navegación ubicado en el encabezado (header.php). Este menú permite a los usuarios acceder a diferentes secciones de la aplicación, ya sea la gestión de libros o autores. 
 El sistema permite al usuario gestionar los libros a través de la interfaz gráfica. Los datos se cargan y manipulan mediante peticiones GET, POST, PUT y DELETE, esto facilita una interacción efectiva con la base de datos. 
