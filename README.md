@@ -23,7 +23,7 @@ El proyecto adopta la estructura Modelo-Vista-Controlador (MVC) con el objetivo 
 - Base de Datos: MySQL para almacenar datos acerca de libros y autores.
 - Frontend: HTML, CSS y JavaScript destinados a la interfaz de usuario.
 - Estructura de JavaScript: Axios para ejecutar solicitudes HTTP asíncronas.
-- Servidor Web: Para llevar a cabo la aplicación en el ambiente local.
+- Servidor Web: Para llevar a cabo la aplicación en el servidor local.
 - .htaccess: Para establecer la reescritura de URLs y facilitar el enrutamiento.
 
 # Desarrollo (Instrucciones para ejecutar la aplicación)
