@@ -6,6 +6,8 @@
 class Router {
     private $routes = [];
 
+    //función que permite agregar una petición con metodos get-post.
+    //función asociativa
     public function add($method, $route, $callback) {
         $this->routes[] = [
             'method'   => strtoupper($method),
@@ -14,6 +16,8 @@ class Router {
         ];
     }
 
+    // Method  dispatch permite agregar una ruta y redirigir la respectiva operación en el callback asignado.
+
     public function dispatch($method, $uri) {
         foreach ($this->routes as $route) {
             if ($route['method'] === strtoupper($method) && preg_match($this->convertRoute($route['route']), $uri, $params)) {
@@ -21,10 +25,14 @@ class Router {
                 return call_user_func_array($route['callback'], $params);
             }
         }
+
+
         http_response_code(404);
         echo json_encode(['message' => 'Not Found']);
     }
 
+        // Función convertRoute es el método que nos realiza nuestras operaciones.
+  
     private function convertRoute($route) {
         return "#^" . preg_replace('/\\\:[a-zA-Z0-9_]+/', '([a-zA-Z0-9_-]+)', preg_quote($route)) . "$#";
     }
