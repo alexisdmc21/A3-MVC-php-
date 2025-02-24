@@ -24,8 +24,12 @@ const getLibros = () => {
           <td>${libro.precio}</td>
           <td>${libro.cantidad}</td>
           <td>
-            <button class="btn btn-sm btn-info" onclick="editLibro(${libro.id})">Editar</button>
-            <button class="btn btn-sm btn-danger" onclick="deleteLibro(${libro.id})">Eliminar</button>
+            <button class="btn btn-success btn-sm text-white fw-bold" onclick="editLibro(${libro.id})">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm fw-bold" onclick="deleteLibro(${libro.id})">
+              <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
           </td>
         `;
         tbody.appendChild(tr); //Se encarga de agregar un elemnto de fila a la tabla de libros
@@ -68,7 +72,7 @@ document.getElementById('libroForm').addEventListener('submit', e => {
     return;
   }
 
-  //Condicional if que verifica si el 'id' existe, es decir el libro ya está en la base de datos por ende sera una actulizacion
+  //Condicional if que verifica si el 'id' existe, es decir el libro ya está en la base de datos por ende sera una actualizacion
   if (id) {
 
     //Hace la solicitud PUT

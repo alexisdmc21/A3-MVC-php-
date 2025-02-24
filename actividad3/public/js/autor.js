@@ -21,8 +21,12 @@ const getAutores = ()=> {
           <td>${autor.nacionalidad}</td>
           <td>${autor.fechaNacimiento}</td>
           <td>
-            <button class="btn btn-sm btn-info" onclick="editAutor(${autor.id})">Editar</button>
-            <button class="btn btn-sm btn-danger" onclick="deleteAutor(${autor.id})">Eliminar</button>
+            <button class="btn btn-success btn-sm text-white fw-bold" onclick="editAutor(${autor.id})">
+              <i class="fas fa-edit"></i> Editar
+            </button>
+            <button class="btn btn-danger btn-sm fw-bold" onclick="deleteAutor(${autor.id})">
+              <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
           </td>
         `;
         tbody.appendChild(tr); //Se encarga de agregar un elemnto de fila a la tabla de autores
@@ -49,7 +53,7 @@ document.getElementById('autorForm').addEventListener('submit', e => {
     const nacionalidad = document.getElementById('autorNacionalidad').value;
     const fechaNacimiento = document.getElementById('autorFechaNacimiento').value;
 
-    //Condicional if que verifica si el 'id' existe, es decir el autor ya está en la base de datos por ende sera una actulizacion
+    //Condicional if que verifica si el 'id' existe, es decir el autor ya está en la base de datos por ende sera una actualizacion
     if (id) {
 
       //Hace la solicitud PUT
@@ -94,7 +98,6 @@ document.getElementById('autorForm').addEventListener('submit', e => {
       };
 
       //Elimina un autor.
-      // 
       //Función para eliminar un autor que recibe el 'id' del autor como parámetro
       const deleteAutor = id => {
         if (confirm('¿Estás seguro de eliminar este autor?')) {
