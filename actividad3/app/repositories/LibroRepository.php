@@ -5,10 +5,12 @@ class LibroRepository{
     private $conn;
     private $table_name = "libros";
 
+    //Recibe la conexión a la base de datos y lo almacena
     public function __construct($db){
         $this->conn = $db;
     }
 
+    //Funcion que recupera todos los registros de la tabla
     public function readAll(){
         $query = "SELECT l.*, a.nombre as autor_nombre
         FROM {$this->table_name} l
@@ -18,6 +20,7 @@ class LibroRepository{
     return $stmt;
     }
 
+    //Funcion que permite la inserción de un nuevo libro en la base de datos
     public function create(Libro $libro){
         $query = "INSERT INTO {$this->table_name} (titulo,fechaPublicacion,genero,isbn,precio,cantidad,autores_id) 
         VALUES (:titulo,:fechaPublicacion,:genero,:isbn,:precio,:cantidad,:autores_id)";
@@ -32,6 +35,7 @@ class LibroRepository{
         return $stmt->execute();
         }
 
+    //Funcion que actualiza los datos de un libro existente
     public function update(Libro $libro){
         $query = "UPDATE {$this->table_name}
         SET titulo = :titulo, fechaPublicacion = :fechaPublicacion, genero = :genero, isbn = :isbn, precio = :precio, cantidad = :cantidad, autores_id = :autores_id
@@ -48,6 +52,7 @@ class LibroRepository{
     return $stmt->execute();
     }
 
+    //Funcion que elimina un libro de la base de datos tomando su ID
     public function delete($id){
         $query = "DELETE FROM {$this->table_name} WHERE id = :id";
         $stmt = $this->conn->prepare($query);
@@ -55,6 +60,7 @@ class LibroRepository{
         return $stmt->execute();
     }
 
+    //Funcion que obtiene un solo libro por su ID y devuelve la información relacionada.
     public function readOne($id){
         $query = "SELECT l.*, a.nombre as autor_nombre
                   FROM {$this->table_name} l

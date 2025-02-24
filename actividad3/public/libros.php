@@ -1,16 +1,19 @@
-<?php include 'templates/header.php'; ?>
+<?php include 'templates/header.php'; ?> <!--SE INCLUYE EL HEADER QUE CONTIENE LOS NAVBAR-->
 
+<!--DIV GENERAL QUE CONTIENE LA TABLA RENDERIZADA POR EL SCRIPT-->
 <div class="container mt-5 pt-5">
     <h1 class="text-center text-dark fw-bold pb-2 border-bottom border-3 border-dark">Gestión de Libros</h1>
 
+    <!--DIV QUE CONTIENE EL BOTON QUE HARA LA ACCION PARA MOSTRAR EL MODAL PARA EL REGISTRO DE LIBROS-->
     <div class="d-flex justify-content-end mb-3">
         <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#libroModal" onclick="openModalLibro();">
             + Agregar Libro
         </button>
     </div>
 
+    <!--DIV QUE CONTIENE LA TABLA DE LIBROS-->
     <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table id="librosTable" class="table table-striped table-hover">
             <thead class="bg-dark text-white text-center">
                 <tr>
                     <th>ID</th>
@@ -31,7 +34,7 @@
     </div>
 </div>
 
-<!-- Modal para Libros -->
+<!-- Modal para Libros por documentacion de bootstrap con los campos respectivos-->
 <div class="modal fade" id="libroModal" tabindex="-1" aria-labelledby="libroModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -81,5 +84,5 @@
     </div>
 </div>
 
-<script src="js/libro.js"></script>
-<?php include 'templates/footer.php'; ?>
+<script src="js/libro.js"></script> <!--SCRIPT PARA LAS ACCIONES DE AGREGAR, EDITAR, ELMINAR Y OBTENER-->
+<?php include 'templates/footer.php'; ?> <!--SE INCLUYE EL FOOTER QUE CONTIENE EL DISEÑO Y LOS SCRIPTS NECESARIOS PARA ACCIONES DE MODALES, BOOTSTRAP, JQUERY-->

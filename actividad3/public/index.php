@@ -25,7 +25,7 @@ $router -> add('PUT', '/libros', fn() => $libroController -> update());
 $router -> add('DELETE', '/libros', fn() => $libroController -> destroy());
 
 $uri=parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$basePath ='/proyecto_a3/A3-MVC-php-/actividad3/public';
+$basePath ='/php-mvc-gl-ga/A3-MVC-php-/actividad3/public';
 if(strpos($uri, $basePath) === 0){
     $uri = substr($uri, strlen($basePath));
 }
